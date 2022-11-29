@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocumentManager.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            Margin="20">
+
+            <Image
+                Source="files_icon.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Doc Mgmt Sys"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+           
+
+            <Entry 
+               x:Name="EmailEntry"
+               Placeholder="Enter your email"
+               TextChanged="OnEmailTextChanged"
+               Completed="OnEmailCompleted"
+                 WidthRequest= "200"
+                />
+            <Entry 
+               x:Name="PasswordEntry"
+               Placeholder="Enter your password"
+               TextChanged="OnPasswordTextChanged"
+               Completed="OnPasswordCompleted"
+                 WidthRequest= "200"
+                />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Login"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="RegisterButton"
+                Text="Register"
+                SemanticProperties.Hint="Register User and Password"
+                Clicked="OnRegisterClicked"
+                HorizontalOptions="Center" />
+
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
