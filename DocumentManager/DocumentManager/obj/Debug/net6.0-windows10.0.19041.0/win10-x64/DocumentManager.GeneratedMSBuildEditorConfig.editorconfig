@@ -7,39 +7,39 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DocumentManager
-build_property.ProjectDir = C:\Users\colin\Documents\GitHub\Documents-Management-System\DocumentManager\DocumentManager\
+build_property.ProjectDir = C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\
 
-[C:/Users/colin/Documents/GitHub/Documents-Management-System/DocumentManager/DocumentManager/App.xaml]
+[C:/Users/colin/Documents/GitHub/DocumentManager/DocumentManager/DocumentManager/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DocumentManager.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/colin/Documents/GitHub/Documents-Management-System/DocumentManager/DocumentManager/AppShell.xaml]
+[C:/Users/colin/Documents/GitHub/DocumentManager/DocumentManager/DocumentManager/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DocumentManager.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/colin/Documents/GitHub/Documents-Management-System/DocumentManager/DocumentManager/HomePage.xaml]
+[C:/Users/colin/Documents/GitHub/DocumentManager/DocumentManager/DocumentManager/HomePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DocumentManager.HomePage.xaml
 build_metadata.AdditionalFiles.TargetPath = HomePage.xaml
 build_metadata.AdditionalFiles.RelativePath = HomePage.xaml
 
-[C:/Users/colin/Documents/GitHub/Documents-Management-System/DocumentManager/DocumentManager/MainPage.xaml]
+[C:/Users/colin/Documents/GitHub/DocumentManager/DocumentManager/DocumentManager/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DocumentManager.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/colin/Documents/GitHub/Documents-Management-System/DocumentManager/DocumentManager/Resources/Styles/Colors.xaml]
+[C:/Users/colin/Documents/GitHub/DocumentManager/DocumentManager/DocumentManager/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DocumentManager.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/colin/Documents/GitHub/Documents-Management-System/DocumentManager/DocumentManager/Resources/Styles/Styles.xaml]
+[C:/Users/colin/Documents/GitHub/DocumentManager/DocumentManager/DocumentManager/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DocumentManager.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml

@@ -1,1 +1,1 @@
-C:\Users\colin\Documents\GitHub\Documents-Management-System\DocumentManager\DocumentManager\DocumentManager.csproj;x64
+C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\DocumentManager.csproj;x64

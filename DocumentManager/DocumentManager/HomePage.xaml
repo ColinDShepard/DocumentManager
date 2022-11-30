@@ -26,6 +26,12 @@
         <Label 
             x:Name="TestText" />
 
+        <Label 
+            x:Name="FileName" />
+
+        <Label
+            x:Name="DownloadLink" />
+
 
     </VerticalStackLayout>
 </ContentPage>

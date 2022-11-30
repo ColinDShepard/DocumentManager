@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gbnle2s0KTszd2m16bXSHSTzCJ8ELFNwBwT6qLr+o7NMnVmLgN2+qPIB0BXbz62ODLBS/ZUUWBibGBW5UtW0TA==",
+  "dgSpecHash": "FS2cYr07INaKBunmY1dvlUoEr3ob7Mi4zwb5KxAZ7Ef/PTHV5j4N6Uw6wG1rBn4Hudqm2qDQcrlNHBWV+iPgeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\colin\\Documents\\GitHub\\Documents-Management-System\\DocumentManager\\DocumentManager\\DocumentManager.csproj",
+  "projectFilePath": "C:\\Users\\colin\\Documents\\GitHub\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\colin\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
     "C:\\Users\\colin\\.nuget\\packages\\firebasedatabase.net\\4.1.0\\firebasedatabase.net.4.1.0.nupkg.sha512",
