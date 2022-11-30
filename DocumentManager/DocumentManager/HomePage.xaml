@@ -21,16 +21,24 @@
             Clicked="UploadBtnOnClick"
             HorizontalOptions="Center" />
 
-        <ListView ItemsSource="{Binding Files}" />
 
         <Label 
             x:Name="TestText" />
 
         <Label 
-            x:Name="FileName" />
+            x:Name="FileName" 
+            
+            />
+        <Button
+            x:Name="DownloadButton"
+            Text="Download Button"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="DownloadBtnOnClick"
+            HorizontalOptions="Center" />
 
-        <Label
-            x:Name="DownloadLink" />
+
+
+
 
 
     </VerticalStackLayout>

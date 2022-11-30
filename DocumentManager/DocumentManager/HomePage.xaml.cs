@@ -79,7 +79,7 @@ public partial class HomePage : ContentPage
         // await the task to wait until upload completes and get the download url
         var downloadUrl = await task;
 
-        TestText.Text = downloadUrl;
+        //TestText.Text = downloadUrl;
 
         var firebase = new FirebaseClient("https://doc-management-system-110ee-default-rtdb.firebaseio.com/");
         Files testfile = new Files();
@@ -106,6 +106,8 @@ public partial class HomePage : ContentPage
 
         SemanticScreenReader.Announce(UploadBtn.Text);
 
+        Retrieve();
+
         //display();
     }
 
@@ -128,6 +130,20 @@ public partial class HomePage : ContentPage
 
     }
 
+    private async void DownloadBtnOnClick(object sender, EventArgs e)
+    {
+        try
+        {
+            Uri uri = new Uri("https://www.microsoft.com");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch (Exception ex)
+        {
+            // An unexpected error occured. No browser may be installed on the device.
+        }
+        SemanticScreenReader.Announce(DownloadButton.Text);
+    }
+
     private async void Retrieve() {
 
         var firebase = new FirebaseClient("https://doc-management-system-110ee-default-rtdb.firebaseio.com/");
@@ -135,10 +151,18 @@ public partial class HomePage : ContentPage
           .Child(a.User.LocalId)
           .OnceAsync<Files>();
 
+
+        FileName.Text = "";
         foreach (var item in items)
         {
-            FileName.Text = item.Object.fileName;
-            DownloadLink.Text = item.Object.downloadUrl;
+            FileName.Text += "\n" + item.Object.fileName;
+
+
+
+           
+            
+
+
         }
 
 
