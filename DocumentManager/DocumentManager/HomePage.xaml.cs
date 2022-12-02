@@ -8,7 +8,9 @@ namespace DocumentManager;
 public partial class HomePage : ContentPage
 {
     FirebaseAuthLink a;
-	public HomePage(FirebaseAuthLink a)
+    String realtimeDbKey = "https://doc-management-system-110ee-default-rtdb.firebaseio.com";
+
+    public HomePage(FirebaseAuthLink a)
 	{
         this.a = a;
 
@@ -81,7 +83,7 @@ public partial class HomePage : ContentPage
 
         //TestText.Text = downloadUrl;
 
-        var firebase = new FirebaseClient("https://doc-management-system-110ee-default-rtdb.firebaseio.com/");
+        var firebase = new FirebaseClient(realtimeDbKey);
         Files testfile = new Files();
 
 
@@ -146,7 +148,7 @@ public partial class HomePage : ContentPage
 
     private async void Retrieve() {
 
-        var firebase = new FirebaseClient("https://doc-management-system-110ee-default-rtdb.firebaseio.com/");
+        var firebase = new FirebaseClient(realtimeDbKey);
         var items = await firebase
           .Child(a.User.LocalId)
           .OnceAsync<Files>();
