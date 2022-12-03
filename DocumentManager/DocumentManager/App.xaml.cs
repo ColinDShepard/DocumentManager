@@ -8,4 +8,16 @@ public partial class App : Application
 
 		MainPage = new AppShell();
 	}
+
+	protected override Window CreateWindow(IActivationState activationState)
+	{
+		var window = base.CreateWindow(activationState);
+
+		const int newWidth = 600;
+		const int newHeight = 600;
+
+	
+
+		return window;
+	}
 }
