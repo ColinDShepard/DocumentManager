@@ -8,12 +8,6 @@
             VerticalOptions="Center"
             Margin="20">
 
-        <Button
-            x:Name="UploadBtn"
-            Text="Upload File"
-            SemanticProperties.Hint="Counts the number of times you click"
-            Clicked="UploadBtnOnClick"
-            HorizontalOptions="Center" />
 
         <Label 
             x:Name="FileName" 
@@ -21,13 +15,38 @@
             
             />
 
+        <Label 
+            x:Name="TestText"
+            HorizontalOptions="Center"
+            IsVisible="False"
+            Text="{Binding Source={x:Reference TestPicker}, Path=SelectedItem}" />
+
+        <Label
+            x:Name="KeyText" 
+            IsVisible="False"
+            />
+
         <Picker
                 x:Name="TestPicker"
                 HorizontalOptions="Center"
                 Title="Choose a file"
-                TitleColor="Red"
+                TitleColor="Cyan"
                 SelectedIndexChanged="createImage"
             />
+
+        <HorizontalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            HorizontalOptions="Center"
+            Margin="20"
+            
+            > 
+        <Button
+            x:Name="UploadBtn"
+            Text="Upload File"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="UploadBtnOnClick"
+            HorizontalOptions="Center" />
 
         <Button
             x:Name="DownloadButton"
@@ -36,11 +55,6 @@
             Clicked="DownloadBtnOnClick"
             HorizontalOptions="Center" />
 
-        <Label 
-            x:Name="TestText"
-            HorizontalOptions="Center"
-            Text="{Binding Source={x:Reference TestPicker}, Path=SelectedItem}" />
-
         <Button
             x:Name="DeleteButton"
             Text="Delete Button"
@@ -48,8 +62,8 @@
             Clicked="DeleteBtnOnClick"
             HorizontalOptions="Center" />
 
-        <Label
-            x:Name="KeyText" />
+        </HorizontalStackLayout>
+
 
         <Image x:Name="TestImage"
                HeightRequest="200"

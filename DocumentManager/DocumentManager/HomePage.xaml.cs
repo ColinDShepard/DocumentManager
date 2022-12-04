@@ -3,7 +3,7 @@ using Firebase.Storage;
 using Firebase.Auth;
 using Firebase.Database.Query;
 using System.Collections;
-
+using System.Net.WebSockets;
 
 namespace DocumentManager;
 
@@ -56,39 +56,29 @@ public partial class HomePage : ContentPage
 
         // Get any Stream - it can be FileStream, MemoryStream or any other type of Stream
         //var stream =File.Open(@"C:\Users\colin\Downloads\files-icon.webp", FileMode.Open);
+        try { 
+            
         var stream = File.Open(@path, FileMode.Open);
 
-
-        //authentication
-        /* var auth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCU5uJkE90JsYuLOjBqivcHa1JbXfIEHGc"));
-           var a = await auth.SignInWithEmailAndPasswordAsync("test@gmail.com", "tester"); */
-
-
-
-        // Constructr FirebaseStorage, path to where you want to upload the file and Put it there
         var task = new FirebaseStorage(
-            "doc-management-system-110ee.appspot.com",
+        "doc-management-system-110ee.appspot.com",
 
 
-             new FirebaseStorageOptions
-             {
-                 AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
-                 ThrowOnCancel = true,
-             })
-            .Child(a.User.LocalId)
-            //.Child("random")
-            .Child(result.FileName)
-            .PutAsync(stream);
-
-
+         new FirebaseStorageOptions
+         {
+             AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
+             ThrowOnCancel = true,
+         })
+        .Child(a.User.LocalId)
+        //.Child("random")
+        .Child(result.FileName)
+        .PutAsync(stream);
 
         // Track progress of the upload
         task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
 
         // await the task to wait until upload completes and get the download url
         var downloadUrl = await task;
-
-        //TestText.Text = downloadUrl;
 
         var firebase = new FirebaseClient(realtimeDbKey);
         Files testfile = new Files();
@@ -99,8 +89,8 @@ public partial class HomePage : ContentPage
 
         // add new item to list of data and let the client generate new key for you (done offline)
         var item = await firebase
-          .Child(a.User.LocalId)
-          .PostAsync(testfile);
+            .Child(a.User.LocalId)
+            .PostAsync(testfile);
 
         // note that there is another overload for the PostAsync method which delegates the new key generation to the firebase server
 
@@ -108,14 +98,25 @@ public partial class HomePage : ContentPage
 
         // add new item directly to the specified location (this will overwrite whatever data already exists at that location)
         /*await firebase
-          .Child("dinosaurs")
-          .Child("t-rex")
-          .PutAsync(new Dinosaur()); */
+            .Child("dinosaurs")
+            .Child("t-rex")
+            .PutAsync(new Dinosaur()); */
 
 
         SemanticScreenReader.Announce(UploadBtn.Text);
 
         Retrieve();
+
+
+        }
+
+        catch(Exception ex) { 
+        
+        
+        }
+
+
+
     }
 
 
@@ -184,7 +185,6 @@ public partial class HomePage : ContentPage
     public void OnPickerSelectedIndexchanged(object sender, EventArgs e) {
         var picker = (Picker)sender;
         int selectedIndex = picker.SelectedIndex;
-        Console.WriteLine("Am I here?");
         if (selectedIndex != -1) {
             TestText.Text = (string)picker.ItemsSource[selectedIndex];
 
@@ -273,13 +273,27 @@ public partial class HomePage : ContentPage
         string s = TestText.Text;
 
         string url = "";
+        Image image1 = new Image { Source = ImageSource.FromUri(new Uri("http://www.testurl.com")) };
         foreach (var item in items)
         {
             if (item.Object.fileName == s)
             {
-                url = item.Object.downloadUrl;
-                Image image1 = new Image { Source = ImageSource.FromUri(new Uri(url)) };
-                TestImage.Source = image1.Source;
+                if (checkFileExtension(item.Object.fileName) == "jpg" || checkFileExtension(item.Object.fileName) == "jpeg" || checkFileExtension(item.Object.fileName) == "png") {
+                    url = item.Object.downloadUrl;
+                    image1 = new Image { Source = ImageSource.FromUri(new Uri(url)) };
+                    TestImage.Source = image1.Source;
+
+
+
+                } else {
+
+                    image1 = image1 = new Image { Source = ImageSource.FromUri(new Uri("https://findicons.com/files/icons/2813/flat_jewels/512/file.png")) };
+                    TestImage.Source = image1.Source;
+
+
+                }
+                
+
 
 
             }
@@ -288,6 +302,16 @@ public partial class HomePage : ContentPage
 
 
 
+    }
+
+    public string checkFileExtension(string filename) { 
+
+        var list = filename.Split('.');
+        string extension = list.Last();
+        return extension;
+    
+    
+    
     }
 
 

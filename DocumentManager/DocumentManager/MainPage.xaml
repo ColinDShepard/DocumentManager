@@ -11,10 +11,10 @@
             Margin="20">
 
             <VerticalStackLayout
-            Spacing="25"
+            Spacing="5"
             Padding="30,0"
             VerticalOptions="Center"
-            Margin="20">
+            Margin="1">
                 <Image
                 Source="files_icon.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
@@ -30,18 +30,18 @@
 
 
             <VerticalStackLayout
-            Spacing="25"
+            Spacing="20"
             Padding="30,0"
             VerticalOptions="Center"
-            Margin="20">
+            Margin="1">
 
-                <Entry 
+            <Entry 
                x:Name="EmailEntry"
                Placeholder="Enter your email"
                TextChanged="OnEmailTextChanged"
                Completed="OnEmailCompleted"
-                 WidthRequest= "200"
-                />
+               WidthRequest= "200"
+            />
             <Entry 
                x:Name="PasswordEntry"
                Placeholder="Enter your password"
@@ -51,21 +51,31 @@
                WidthRequest= "200"
                 />
 
-            <Button
+                <HorizontalStackLayout 
+                    Spacing="10"
+                    Padding="30,0"
+                    HorizontalOptions="Center"
+                    Margin="0"
+                    
+                    >
+                <Button
                 x:Name="CounterBtn"
                 Text="Login"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
-            <Button
+                <Button
                 x:Name="RegisterButton"
                 Text="Register"
                 SemanticProperties.Hint="Register User and Password"
                 Clicked="OnRegisterClicked"
                 HorizontalOptions="Center" />
 
-            <Label x:Name="ErrorLabel"
+
+                </HorizontalStackLayout>
+
+                <Label x:Name="ErrorLabel"
                    HorizontalOptions="Center"
                    TextColor ="Red" />
 
