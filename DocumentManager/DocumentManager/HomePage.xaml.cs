@@ -2,6 +2,8 @@ using Firebase.Database;
 using Firebase.Storage;
 using Firebase.Auth;
 using Firebase.Database.Query;
+using System.Collections;
+
 
 namespace DocumentManager;
 
@@ -10,8 +12,10 @@ public partial class HomePage : ContentPage
     FirebaseAuthLink a;
     String realtimeDbKey = "https://doc-management-system-110ee-default-rtdb.firebaseio.com";
 
+    ArrayList arrayList = new ArrayList();
+
     public HomePage(FirebaseAuthLink a)
-	{
+    {
         this.a = a;
 
         Retrieve();
@@ -20,9 +24,12 @@ public partial class HomePage : ContentPage
         InitializeComponent();
 
 
+
     }
 
-       
+
+
+
 
 
 
@@ -36,26 +43,26 @@ public partial class HomePage : ContentPage
 
 
 
-            var path = " ";
-            var result = await FilePicker.Default.PickAsync(options);
-            if (result != null)
-            {
-                path = result.FullPath;
-            }
+        var path = " ";
+        var result = await FilePicker.Default.PickAsync(options);
+        if (result != null)
+        {
+            path = result.FullPath;
+        }
 
-           
-        
+
+
 
 
         // Get any Stream - it can be FileStream, MemoryStream or any other type of Stream
         //var stream =File.Open(@"C:\Users\colin\Downloads\files-icon.webp", FileMode.Open);
-        var stream =File.Open(@path, FileMode.Open);
-       
+        var stream = File.Open(@path, FileMode.Open);
+
 
         //authentication
-       /* var auth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCU5uJkE90JsYuLOjBqivcHa1JbXfIEHGc"));
-          var a = await auth.SignInWithEmailAndPasswordAsync("test@gmail.com", "tester"); */
-        
+        /* var auth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCU5uJkE90JsYuLOjBqivcHa1JbXfIEHGc"));
+           var a = await auth.SignInWithEmailAndPasswordAsync("test@gmail.com", "tester"); */
+
 
 
         // Constructr FirebaseStorage, path to where you want to upload the file and Put it there
@@ -71,9 +78,9 @@ public partial class HomePage : ContentPage
             .Child(a.User.LocalId)
             //.Child("random")
             .Child(result.FileName)
-            .PutAsync(stream); 
+            .PutAsync(stream);
 
-        
+
 
         // Track progress of the upload
         task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
@@ -109,41 +116,47 @@ public partial class HomePage : ContentPage
         SemanticScreenReader.Announce(UploadBtn.Text);
 
         Retrieve();
-
-        //display();
     }
 
-    private async void display() {
-        var files = new FirebaseStorage(
-       "doc-management-system-110ee.appspot.com",
-
-
-       new FirebaseStorageOptions
-       {
-           AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
-           ThrowOnCancel = true,
-       })
-       .Child(a.User.Email).GetDownloadUrlAsync();
-       
-
-        TestText.Text = files.Result.ToString();
-
-
-
-    }
 
     private async void DownloadBtnOnClick(object sender, EventArgs e)
     {
+
+
         try
         {
-            Uri uri = new Uri("https://www.microsoft.com");
+
+            string s = TestText.Text;
+
+            var firebase = new FirebaseClient(realtimeDbKey);
+            var items = await firebase
+              .Child(a.User.LocalId)
+              .OnceAsync<Files>();
+            string url = "";
+            foreach (var item in items)
+            {
+                if (item.Object.fileName == s)
+                {
+                    url = item.Object.downloadUrl;
+
+
+                }
+
+            }
+
+
+
+
+            Uri uri = new Uri(url);
             await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
         catch (Exception ex)
         {
+            Console.WriteLine(ex.Message);
             // An unexpected error occured. No browser may be installed on the device.
         }
         SemanticScreenReader.Announce(DownloadButton.Text);
+
     }
 
     private async void Retrieve() {
@@ -155,20 +168,129 @@ public partial class HomePage : ContentPage
 
 
         FileName.Text = "";
+        arrayList.Clear();
         foreach (var item in items)
         {
             FileName.Text += "\n" + item.Object.fileName;
+            arrayList.Add(item.Object.fileName);
+
+        }
+
+        pickerDoStuff();
 
 
+    }
 
-           
-            
+    public void OnPickerSelectedIndexchanged(object sender, EventArgs e) {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+        Console.WriteLine("Am I here?");
+        if (selectedIndex != -1) {
+            TestText.Text = (string)picker.ItemsSource[selectedIndex];
+
 
 
         }
 
 
+
     }
+
+    public void pickerDoStuff() {
+        try {
+
+
+            if (arrayList == null)
+            {
+
+            }
+            else
+            {
+
+                TestPicker.ItemsSource = arrayList;
+                TestPicker.ItemsSource = TestPicker.GetItemsAsArray();
+
+
+
+
+            }
+
+        } catch (Exception ex)
+        {
+
+            Console.WriteLine(ex.Message);
+        }
+
+
+    }
+
+
+
+    private async void DeleteBtnOnClick(object sender, EventArgs e) {
+
+        var task = new FirebaseStorage(
+                   "doc-management-system-110ee.appspot.com",
+
+
+                    new FirebaseStorageOptions
+                    {
+                        AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
+                        ThrowOnCancel = true,
+                    })
+                   .Child(a.User.LocalId).Child(TestText.Text).DeleteAsync();
+
+
+        string s = TestText.Text;
+
+        var firebase = new FirebaseClient(realtimeDbKey);
+        var items = await firebase
+          .Child(a.User.LocalId)
+          .OnceAsync<Files>();
+        string key = "";
+        foreach (var item in items)
+        {
+            if (item.Object.fileName == s)
+            {
+               key = item.Key;
+
+
+            }
+
+        }
+
+        await firebase.Child(a.User.LocalId).Child(key).DeleteAsync();
+        Retrieve();
+
+
+    }
+
+    public async void createImage(object sender, EventArgs e) {
+        var firebase = new FirebaseClient(realtimeDbKey);
+        var items = await firebase
+          .Child(a.User.LocalId)
+          .OnceAsync<Files>();
+
+        string s = TestText.Text;
+
+        string url = "";
+        foreach (var item in items)
+        {
+            if (item.Object.fileName == s)
+            {
+                url = item.Object.downloadUrl;
+                Image image1 = new Image { Source = ImageSource.FromUri(new Uri(url)) };
+                TestImage.Source = image1.Source;
+
+
+            }
+
+        }
+
+
+
+    }
+
+
 
 
 

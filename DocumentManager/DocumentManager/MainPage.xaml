@@ -4,27 +4,38 @@
              x:Class="DocumentManager.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
+        <HorizontalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            HorizontalOptions="Center"
+            Margin="20">
+
+            <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center"
             Margin="20">
-
-            <Image
+                <Image
                 Source="files_icon.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
+                <Label
                 Text="Doc Mgmt Sys"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
+            </VerticalStackLayout>
 
-           
 
-            <Entry 
+            <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            Margin="20">
+
+                <Entry 
                x:Name="EmailEntry"
                Placeholder="Enter your email"
                TextChanged="OnEmailTextChanged"
@@ -36,7 +47,8 @@
                Placeholder="Enter your password"
                TextChanged="OnPasswordTextChanged"
                Completed="OnPasswordCompleted"
-                 WidthRequest= "200"
+               IsPassword="True"
+               WidthRequest= "200"
                 />
 
             <Button
@@ -53,11 +65,14 @@
                 Clicked="OnRegisterClicked"
                 HorizontalOptions="Center" />
 
-
+            <Label x:Name="ErrorLabel"
+                   HorizontalOptions="Center"
+                   TextColor ="Red" />
 
 
 
         </VerticalStackLayout>
+            </HorizontalStackLayout>
     </ScrollView>
 
 </ContentPage>

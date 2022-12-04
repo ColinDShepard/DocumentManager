@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocumentManager.HomePage"
-             Title="HomePage">
+             x:Class="DocumentManager.HomePage">
     <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -16,15 +15,20 @@
             Clicked="UploadBtnOnClick"
             HorizontalOptions="Center" />
 
-
-        <Label 
-            x:Name="TestText" />
-
         <Label 
             x:Name="FileName" 
             HorizontalOptions="Center"
             
             />
+
+        <Picker
+                x:Name="TestPicker"
+                HorizontalOptions="Center"
+                Title="Choose a file"
+                TitleColor="Red"
+                SelectedIndexChanged="createImage"
+            />
+
         <Button
             x:Name="DownloadButton"
             Text="Download Button"
@@ -32,9 +36,24 @@
             Clicked="DownloadBtnOnClick"
             HorizontalOptions="Center" />
 
+        <Label 
+            x:Name="TestText"
+            HorizontalOptions="Center"
+            Text="{Binding Source={x:Reference TestPicker}, Path=SelectedItem}" />
 
+        <Button
+            x:Name="DeleteButton"
+            Text="Delete Button"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="DeleteBtnOnClick"
+            HorizontalOptions="Center" />
 
+        <Label
+            x:Name="KeyText" />
 
+        <Image x:Name="TestImage"
+               HeightRequest="200"
+               WidthRequest="200"/>
 
 
     </VerticalStackLayout>
