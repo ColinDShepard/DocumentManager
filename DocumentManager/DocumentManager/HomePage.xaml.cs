@@ -181,7 +181,7 @@ public partial class HomePage : ContentPage
         pickerDoStuff();
         if (isDeleteClicked && arrayList.Count == 0)
         {
-            Image image1 = new Image { Source = ImageSource.FromUri(new Uri("https://media.istockphoto.com/id/1299140151/vector/404-error-page-not-found-template-with-dead-file.jpg?s=612x612&w=0&k=20&c=aiqJjuQ3_8FTOwFMcYsZW-c1ixCZeZt76-Q6nxMucw0=")) };
+            Image image1 = new Image { Source = ImageSource.FromUri(new Uri("http://www.testurl.com")) };
             TestImage.Source = image1.Source;
 
         }
