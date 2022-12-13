@@ -13,7 +13,7 @@ public partial class HomePage : ContentPage
     String realtimeDbKey = "https://doc-management-system-110ee-default-rtdb.firebaseio.com";
 
     ArrayList arrayList = new ArrayList();
-
+    public bool isDeleteClicked = false;
     public HomePage(FirebaseAuthLink a)
     {
         this.a = a;
@@ -177,9 +177,15 @@ public partial class HomePage : ContentPage
 
         }
 
+        
         pickerDoStuff();
+        if (isDeleteClicked && arrayList.Count == 0)
+        {
+            Image image1 = new Image { Source = ImageSource.FromUri(new Uri("https://media.istockphoto.com/id/1299140151/vector/404-error-page-not-found-template-with-dead-file.jpg?s=612x612&w=0&k=20&c=aiqJjuQ3_8FTOwFMcYsZW-c1ixCZeZt76-Q6nxMucw0=")) };
+            TestImage.Source = image1.Source;
 
-
+        }
+        isDeleteClicked = false;
     }
 
     public void OnPickerSelectedIndexchanged(object sender, EventArgs e) {
@@ -202,11 +208,11 @@ public partial class HomePage : ContentPage
 
             if (arrayList == null)
             {
-
+                TestPicker.IsVisible= false;
             }
             else
             {
-
+                TestPicker.IsVisible = true;    
                 TestPicker.ItemsSource = arrayList;
                 TestPicker.ItemsSource = TestPicker.GetItemsAsArray();
 
@@ -227,7 +233,7 @@ public partial class HomePage : ContentPage
 
 
     private async void DeleteBtnOnClick(object sender, EventArgs e) {
-
+        isDeleteClicked = true;
         var task = new FirebaseStorage(
                    "doc-management-system-110ee.appspot.com",
 
@@ -260,8 +266,8 @@ public partial class HomePage : ContentPage
 
         await firebase.Child(a.User.LocalId).Child(key).DeleteAsync();
         Retrieve();
-
-
+        Console.WriteLine("ArralListcount  "+arrayList.Count);
+        
     }
 
     public async void createImage(object sender, EventArgs e) {

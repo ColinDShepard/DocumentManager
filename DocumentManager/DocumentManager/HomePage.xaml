@@ -7,8 +7,40 @@
             Padding="30,0"
             VerticalOptions="Center"
             Margin="20">
+        <HorizontalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            HorizontalOptions="Center"
+            Margin="20"
+            
+            >
 
+            <Button
+            x:Name="UploadBtn"
+            Text="Upload File"
+                        TextColor="Black"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="UploadBtnOnClick"
+            HorizontalOptions="Center" />
 
+        <Button
+            x:Name="DownloadButton"
+            TextColor="Black"
+            Text="Download"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="DownloadBtnOnClick"
+            HorizontalOptions="Center" />
+
+        <Button
+            x:Name="DeleteButton"
+            BackgroundColor="Red"
+            TextColor="Black"
+            Text="Delete"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="DeleteBtnOnClick"
+            HorizontalOptions="Center" />
+
+        </HorizontalStackLayout>
         <Label 
             x:Name="FileName" 
             HorizontalOptions="Center"
@@ -32,37 +64,10 @@
                 Title="Choose a file"
                 TitleColor="Cyan"
                 SelectedIndexChanged="createImage"
+                
             />
 
-        <HorizontalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            HorizontalOptions="Center"
-            Margin="20"
-            
-            > 
-        <Button
-            x:Name="UploadBtn"
-            Text="Upload File"
-            SemanticProperties.Hint="Counts the number of times you click"
-            Clicked="UploadBtnOnClick"
-            HorizontalOptions="Center" />
 
-        <Button
-            x:Name="DownloadButton"
-            Text="Download Button"
-            SemanticProperties.Hint="Counts the number of times you click"
-            Clicked="DownloadBtnOnClick"
-            HorizontalOptions="Center" />
-
-        <Button
-            x:Name="DeleteButton"
-            Text="Delete Button"
-            SemanticProperties.Hint="Counts the number of times you click"
-            Clicked="DeleteBtnOnClick"
-            HorizontalOptions="Center" />
-
-        </HorizontalStackLayout>
 
 
         <Image x:Name="TestImage"

@@ -1,9 +1,6 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
-using Firebase.Database.Query;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DocumentManager;
 
@@ -30,7 +27,7 @@ public partial class MainPage : ContentPage
     }
 
     
-	private async void OnCounterClicked(object sender, EventArgs e)
+	private async void OnLoginClicked(object sender, EventArgs e)
 	{
         var auth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCU5uJkE90JsYuLOjBqivcHa1JbXfIEHGc"));
 
@@ -44,7 +41,7 @@ public partial class MainPage : ContentPage
             ErrorLabel.Text = "Login or Password is not correct.";
         }
   
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        SemanticScreenReader.Announce(LoginBtn.Text);
     }
 
     private async void OnRegisterClicked(object sender, EventArgs e) {
