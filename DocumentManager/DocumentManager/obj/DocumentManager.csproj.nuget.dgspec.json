@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\colin\\Documents\\GitHub\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj": {}
+    "D:\\586 New Project\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\colin\\Documents\\GitHub\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj": {
+    "D:\\586 New Project\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colin\\Documents\\GitHub\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj",
+        "projectUniqueName": "D:\\586 New Project\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj",
         "projectName": "DocumentManager",
-        "projectPath": "C:\\Users\\colin\\Documents\\GitHub\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj",
-        "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colin\\Documents\\GitHub\\DocumentManager\\DocumentManager\\DocumentManager\\obj\\",
+        "projectPath": "D:\\586 New Project\\DocumentManager\\DocumentManager\\DocumentManager\\DocumentManager.csproj",
+        "packagesPath": "C:\\Users\\Het Shah\\.nuget\\packages\\",
+        "outputPath": "D:\\586 New Project\\DocumentManager\\DocumentManager\\DocumentManager\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\colin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Het Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
