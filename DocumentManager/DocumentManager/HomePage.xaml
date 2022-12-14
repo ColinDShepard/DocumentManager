@@ -19,7 +19,7 @@
             <Button
             x:Name="UploadBtn"
             Text="Upload File"
-                        TextColor="Black"
+            TextColor="Black"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="UploadBtnOnClick"
             HorizontalOptions="Center" />

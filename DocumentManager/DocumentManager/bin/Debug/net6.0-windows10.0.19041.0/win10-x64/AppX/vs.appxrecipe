@@ -29,7 +29,7 @@
     <AppXManifest Include="D:\586 New Project\DocumentManager\DocumentManager\DocumentManager\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-12-14T01:21:05.978</Modified>
+      <Modified>2022-12-14T01:34:42.169</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\586 New Project\DocumentManager\DocumentManager\DocumentManager\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\DocumentManager.dll">
       <PackagePath>DocumentManager.dll</PackagePath>
-      <Modified>2022-12-14T01:21:04.472</Modified>
+      <Modified>2022-12-14T01:34:40.643</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\586 New Project\DocumentManager\DocumentManager\DocumentManager\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DocumentManager.exe</PackagePath>
-      <Modified>2022-12-14T01:21:04.551</Modified>
+      <Modified>2022-12-14T01:34:40.737</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Het Shah\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.11\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -1095,7 +1095,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\586 New Project\DocumentManager\DocumentManager\DocumentManager\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\DocumentManager.deps.json">
       <PackagePath>DocumentManager.deps.json</PackagePath>
-      <Modified>2022-12-14T01:21:05.846</Modified>
+      <Modified>2022-12-14T01:34:42.033</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Het Shah\.nuget\packages\microsoft.maui.controls.ref.win\6.0.547\ref\net6.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
