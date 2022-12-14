@@ -11,13 +11,16 @@ public partial class HomePage : ContentPage
 {
     FirebaseAuthLink a;
     String realtimeDbKey = "https://doc-management-system-110ee-default-rtdb.firebaseio.com";
+   
 
     ArrayList arrayList = new ArrayList();
     public bool isDeleteClicked = false;
+    User user;
     public HomePage(FirebaseAuthLink a)
     {
         this.a = a;
 
+        user = new User(a);
         Retrieve();
 
 
@@ -50,29 +53,9 @@ public partial class HomePage : ContentPage
             path = result.FullPath;
         }
 
+        try {
 
-
-
-
-        // Get any Stream - it can be FileStream, MemoryStream or any other type of Stream
-        //var stream =File.Open(@"C:\Users\colin\Downloads\files-icon.webp", FileMode.Open);
-        try { 
-            
-        var stream = File.Open(@path, FileMode.Open);
-
-        var task = new FirebaseStorage(
-        "doc-management-system-110ee.appspot.com",
-
-
-         new FirebaseStorageOptions
-         {
-             AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
-             ThrowOnCancel = true,
-         })
-        .Child(a.User.LocalId)
-        //.Child("random")
-        .Child(result.FileName)
-        .PutAsync(stream);
+        var task = user.uploadFile(path, a, result);
 
         // Track progress of the upload
         task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
@@ -92,15 +75,6 @@ public partial class HomePage : ContentPage
             .Child(a.User.LocalId)
             .PostAsync(testfile);
 
-        // note that there is another overload for the PostAsync method which delegates the new key generation to the firebase server
-
-        //Console.WriteLine($"Key for the new dinosaur: {item.Key}");
-
-        // add new item directly to the specified location (this will overwrite whatever data already exists at that location)
-        /*await firebase
-            .Child("dinosaurs")
-            .Child("t-rex")
-            .PutAsync(new Dinosaur()); */
 
 
         SemanticScreenReader.Announce(UploadBtn.Text);
@@ -122,7 +96,6 @@ public partial class HomePage : ContentPage
 
     private async void DownloadBtnOnClick(object sender, EventArgs e)
     {
-
 
         try
         {
@@ -234,7 +207,7 @@ public partial class HomePage : ContentPage
 
     private async void DeleteBtnOnClick(object sender, EventArgs e) {
         isDeleteClicked = true;
-        var task = new FirebaseStorage(
+ /*       var task = new FirebaseStorage(
                    "doc-management-system-110ee.appspot.com",
 
 
@@ -243,7 +216,9 @@ public partial class HomePage : ContentPage
                         AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
                         ThrowOnCancel = true,
                     })
-                   .Child(a.User.LocalId).Child(TestText.Text).DeleteAsync();
+                   .Child(a.User.LocalId).Child(TestText.Text).DeleteAsync(); */
+
+        user.deleteFile(TestText.Text); 
 
 
         string s = TestText.Text;

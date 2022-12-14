@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-12-13T05:41:05.955</Modified>
+      <Modified>2022-12-14T05:05:42.783</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-12-13T05:41:04.867</Modified>
+      <Modified>2022-12-14T05:05:39.957</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\DocumentManager.runtimeconfig.json">
       <PackagePath>DocumentManager.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\DocumentManager.dll">
       <PackagePath>DocumentManager.dll</PackagePath>
-      <Modified>2022-12-13T05:41:03.440</Modified>
+      <Modified>2022-12-14T05:05:37.885</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DocumentManager.exe</PackagePath>
-      <Modified>2022-12-13T05:41:03.475</Modified>
+      <Modified>2022-12-14T05:05:37.905</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\colin\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.11\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -1096,7 +1096,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\colin\Documents\GitHub\DocumentManager\DocumentManager\DocumentManager\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\DocumentManager.deps.json">
       <PackagePath>DocumentManager.deps.json</PackagePath>
-      <Modified>2022-12-13T05:41:05.640</Modified>
+      <Modified>2022-12-14T05:05:42.104</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\colin\.nuget\packages\microsoft.maui.controls.ref.win\6.0.547\ref\net6.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

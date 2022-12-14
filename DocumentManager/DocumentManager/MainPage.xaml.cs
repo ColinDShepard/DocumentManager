@@ -13,10 +13,6 @@ public partial class MainPage : ContentPage
 
     public ObservableCollection<Login> LoginInfo { get; set; } = new ObservableCollection<Login>();
 
-
-
-
-
     public MainPage()
 	{
 		InitializeComponent();
